@@ -59,11 +59,6 @@ We welcome contributions from the community! Whether you are fixing a bug or add
     
 5.  **Open a Pull Request**: Describe your changes in detail and link the relevant issue.
     
-
-### Current Open Issues for Contributors
-
-**IssueFiles InvolvedTasksResponsive Sidebar**src/App.js, src/components/Sidebar.jsCreate a collapsible navigation menu for mobile users.**Dark Mode Toggle**src/index.css, src/App.jsImplement a global theme switcher using CSS variables.**JWT Authentication**backend/server.js, backend/routes/auth.jsSecure the CR and Society Head routes with token-based login.**Conflict Logic**backend/server.js, src/components/ClassroomModule.jsPrevent overlapping classroom bookings in the database.**PDF Export**src/components/ResultPage.jsAllow students to download their rank and CGPA as a PDF file.
-
 ✨ Features
 ----------
 
