@@ -29,22 +29,23 @@ const AttendanceTracker = () => {
   const [studentAttendance, setStudentAttendance] = useState(null);
   const [showContent, setShowContent] = useState(false); // State for showing content
 
-  const handleSearch = () => {
-    if (!enrollmentNumber) {
-      alert("Please enter an enrollment number.");
-      return;
+  const handleSearch = async () => {
+    if (!enrollmentNumber) return alert("Please enter an enrollment number.");
+    
+    try {
+        const response = await fetch(`http://localhost:5000/api/attendance/${enrollmentNumber}`);
+        const data = await response.json();
+        
+        if (response.ok) {
+            setStudentAttendance(data);
+        } else {
+            setStudentAttendance(null);
+            alert("No record found.");
+        }
+    } catch (error) {
+        console.error("Fetch error:", error);
     }
-    const student = attendanceData.find(
-      (record) => record.enrollment === enrollmentNumber
-    );
-    if (student) {
-      setStudentAttendance(student);
-    } else {
-      setStudentAttendance(null); // If no record found, set to null
-      alert("No record found for this enrollment number.");
-    }
-  };
-
+};
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       handleSearch();
